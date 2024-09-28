@@ -1,0 +1,47 @@
+@use 'constants';
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
+:root {
+  font-family: Nunito Sans, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.dark_mode {
+  color: #fff;
+
+  button {
+    color: #fff;
+  }
+}
+
+.root_dark_mode {
+  height: 100vh;
+  background-color: constants.$very-dark-blue-bg;
+}
+
+.root_light_mode {
+  height: 100vh;
+  background-color: constants.$very-light-gray-bg;
+}
+
+.max-width-1440 {
+  max-width: 1440px;
+  margin: 0 auto;
+  position: relative;
+}
+
+
+.d-none {
+  display: none !important;
+}
