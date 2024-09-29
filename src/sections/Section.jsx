@@ -5,8 +5,6 @@ import Element from '../components/Element';
 import SearchInput from '../components/SearchInput';
 import RegionFilter from '../components/RegionFilter';
 import CountryCard from '../components/CountryCard';
-import { motion } from 'framer-motion';
-import { useRef } from 'react';
 
 
 const Section = () => {
@@ -48,13 +46,6 @@ const Section = () => {
       document.getElementById(selectedCountryID)?.scrollIntoView({ behavior: 'smooth' });
     }
   }, [selectedCountry]);
-
-
-  const scrollToTopRef = useRef(null); // Dodaj referencję
-
-  const handleScrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
 
   return (
     <main className={`main_section max-width-1440 ${mode}`}>

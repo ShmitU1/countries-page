@@ -1,22 +1,19 @@
 @use 'constants';
 
 .main_section {
-    > .scroll-to-top {
-        position: fixed; /* Ustawienie na stałe w oknie przeglądarki */
-        bottom: 20px; /* Odległość od dołu */
-        right: 20px;
-        cursor: pointer; /* Kursor wskazujący */
-        z-index: 1000;
-    }
     > .main_select_container {
         padding: 20px 10px;
         display: flex;
         flex-direction: column;
 
         > .container_input_element {
+            padding: 10px 20px;
             margin-bottom: 20px;
             background-color: constants.$dark-blue;
-            padding: 10px 20px;
+        }
+
+        > .container_input_element,
+        > .container_menu_element {
             border-radius: 5px;
             min-width: 30%;
             max-width: 100%;
@@ -161,18 +158,13 @@
     }
 }
 
-.main_section.dark_mode {
-    background-color: constants.$very-dark-blue-bg;
-
-    .container_input_element {
-        > input {
-            color: white;
-        }
-    }
+// mixin for section styles
+@mixin section-mode-styles($bg-color, $shadow-color) {
+    background-color: $bg-color;
 
     &::before {
         content: '';
-        background-color: constants.$very-dark-blue-bg;
+        background-color: $bg-color;
         position: absolute;
         width: 100vw;
         height: 100%;
@@ -180,11 +172,20 @@
         top: 0;
         margin-left: -50vw;
         z-index: -1;
+        box-shadow: 0px 0px 10px 1px $shadow-color;
+    }
+}
+
+.main_section.dark_mode {
+    @include section-mode-styles(constants.$very-dark-blue-bg, constants.$very-dark-blue-bg);
+
+    .container_input_element > input {
+        color: white;
     }
 }
 
 .main_section.light_mode {
-    background-color: constants.$very-light-gray-bg;
+    @include section-mode-styles(constants.$very-light-gray-bg, hsl(213, 9%, 76%));
 
     .container_input_element {
         background-color: constants.$white;
@@ -214,17 +215,5 @@
             background-color: constants.$white;
             box-shadow: 0px 0px 10px 1px hsl(213, 9%, 76%);
         }
-    }
-
-    &::before {
-        content: '';
-        background-color: constants.$very-light-gray-bg;
-        position: absolute;
-        width: 100vw;
-        height: 100%;
-        left: 50%;
-        top: 0;
-        margin-left: -50vw;
-        z-index: -1;
     }
 }

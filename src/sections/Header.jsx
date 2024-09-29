@@ -12,7 +12,7 @@ const Header = () => {
 
   useEffect(() => {
     const rootElement = document.getElementById('root').classList;
-    const className = mode === 'dark_mode' ? 'root_dark_mode' : 'root_light_mode'; // Przypisz klasę do zmiennej
+    const className = mode === 'dark_mode' ? 'root_dark_mode' : 'root_light_mode';
     
     rootElement.add(className);
     
@@ -25,9 +25,9 @@ const Header = () => {
     <header className={`header_container max-width-1440 ${mode}`}>
       <div className="header_container__left">
         <motion.h1 
-          initial={{ opacity: 0, y: -20 }} // Początkowy stan
-          animate={{ opacity: 1, y: 0 }} // Stan końcowy
-          transition={{ duration: 0.5 }} // Czas trwania animacji
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
         >
           Where in the world?
         </motion.h1>

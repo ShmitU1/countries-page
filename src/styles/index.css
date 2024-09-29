@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap");
 :root {
   font-family: Nunito Sans, sans-serif;
@@ -57,6 +56,11 @@ body {
   font-size: 14px;
   transition: font-size 0.3s ease;
 }
+@media (min-width: 979px) {
+  .header_container > .header_container__left > h1 {
+    font-size: 24px;
+  }
+}
 .header_container > .header_container__right > span {
   cursor: pointer;
   -webkit-user-select: none;
@@ -69,9 +73,6 @@ body {
   margin-right: 10px;
 }
 @media (min-width: 979px) {
-  .header_container > .header_container__left > h1 {
-    font-size: 24px;
-  }
   .header_container > .header_container__right > span {
     font-size: 16px;
   }
@@ -113,35 +114,34 @@ body {
   z-index: -1;
 }
 
-.main_section > .scroll-to-top {
-  position: fixed; /* Ustawienie na stałe w oknie przeglądarki */
-  bottom: 20px; /* Odległość od dołu */
-  right: 20px;
-  cursor: pointer; /* Kursor wskazujący */
-  z-index: 1000;
-}
 .main_section > .main_select_container {
   padding: 20px 10px;
   display: flex;
   flex-direction: column;
 }
 .main_section > .main_select_container > .container_input_element {
+  padding: 10px 20px;
   margin-bottom: 20px;
   background-color: hsl(209, 23%, 22%);
-  padding: 10px 20px;
+}
+.main_section > .main_select_container > .container_input_element,
+.main_section > .main_select_container > .container_menu_element {
   border-radius: 5px;
   min-width: 30%;
   max-width: 100%;
 }
-.main_section > .main_select_container > .container_input_element > .input_icon {
+.main_section > .main_select_container > .container_input_element > .input_icon,
+.main_section > .main_select_container > .container_menu_element > .input_icon {
   width: 10%;
 }
-.main_section > .main_select_container > .container_input_element > input {
+.main_section > .main_select_container > .container_input_element > input,
+.main_section > .main_select_container > .container_menu_element > input {
   background: transparent;
   border: none;
   margin-left: 10px;
 }
-.main_section > .main_select_container > .container_input_element > input:focus {
+.main_section > .main_select_container > .container_input_element > input:focus,
+.main_section > .main_select_container > .container_menu_element > input:focus {
   outline: none;
 }
 .main_section > .main_select_container > .container_menu_element {
@@ -245,9 +245,6 @@ body {
 .main_section.dark_mode {
   background-color: hsl(207, 26%, 17%);
 }
-.main_section.dark_mode .container_input_element > input {
-  color: white;
-}
 .main_section.dark_mode::before {
   content: "";
   background-color: hsl(207, 26%, 17%);
@@ -258,10 +255,26 @@ body {
   top: 0;
   margin-left: -50vw;
   z-index: -1;
+  box-shadow: 0px 0px 10px 1px hsl(207, 26%, 17%);
+}
+.main_section.dark_mode .container_input_element > input {
+  color: white;
 }
 
 .main_section.light_mode {
   background-color: hsl(0, 0%, 98%);
+}
+.main_section.light_mode::before {
+  content: "";
+  background-color: hsl(0, 0%, 98%);
+  position: absolute;
+  width: 100vw;
+  height: 100%;
+  left: 50%;
+  top: 0;
+  margin-left: -50vw;
+  z-index: -1;
+  box-shadow: 0px 0px 10px 1px hsl(213, 9%, 76%);
 }
 .main_section.light_mode .container_input_element {
   background-color: hsl(0, 0%, 100%);
@@ -282,17 +295,6 @@ body {
   background-color: hsl(0, 0%, 100%);
   box-shadow: 0px 0px 10px 1px hsl(213, 9%, 76%);
 }
-.main_section.light_mode::before {
-  content: "";
-  background-color: hsl(0, 0%, 98%);
-  position: absolute;
-  width: 100vw;
-  height: 100%;
-  left: 50%;
-  top: 0;
-  margin-left: -50vw;
-  z-index: -1;
-}
 
 .element_container {
   background-color: hsl(207, 26%, 17%);
@@ -300,6 +302,7 @@ body {
   position: absolute;
   top: 0;
   padding: 40px 15px;
+  background-color: hsl(207, 26%, 17%);
 }
 .element_container > .element_btn {
   border: none;
@@ -376,15 +379,23 @@ body {
     margin-right: 30px;
   }
 }
+.element_container .element_btn {
+  background-color: hsl(209, 23%, 22%);
+  box-shadow: 0px 0px 5px 0px hsl(200, 15%, 8%);
+}
+.element_container .border_section_elements > p {
+  background-color: hsl(207, 26%, 17%);
+  box-shadow: 0px 0px 5px 1px hsl(200, 15%, 8%);
+}
 
 .element_container.light_mode {
   background-color: hsl(0, 0%, 98%);
 }
-.element_container.light_mode > .element_btn {
+.element_container.light_mode .element_btn {
   background-color: hsl(0, 0%, 100%);
-  box-shadow: 0px 0px 5px 1px hsl(213, 9%, 76%);
+  box-shadow: 0px 0px 5px 0px hsl(213, 9%, 76%);
 }
 .element_container.light_mode .border_section_elements > p {
-  background-color: hsl(0, 0%, 100%);
+  background-color: hsl(0, 0%, 98%);
   box-shadow: 0px 0px 5px 1px hsl(213, 9%, 76%);
 }/*# sourceMappingURL=index.css.map */

@@ -1,5 +1,21 @@
 @use 'constants';
 
+// mixin for element styles
+@mixin mode-styles($bg-color, $shadow-color, $buttonBgColor) {
+    background-color: $bg-color;
+
+    .element_btn {
+        background-color: $buttonBgColor;
+        box-shadow: 0px 0px 5px 0px $shadow-color;
+    }
+
+    .border_section_elements {
+        > p {
+            background-color: $bg-color;
+            box-shadow: 0px 0px 5px 1px $shadow-color;
+        }
+    }
+}
 
 .element_container {
     background-color: constants.$very-dark-blue-bg;
@@ -108,24 +124,10 @@
             }
         }
     }
+
+    @include mode-styles(constants.$very-dark-blue-bg, constants.$very-dark-blue-text, constants.$dark-blue);
+
 }
-
-
-
 .element_container.light_mode {
-    background-color: constants.$very-light-gray-bg;
-
-    > .element_btn {
-        background-color: constants.$white;
-        box-shadow: 0px 0px 5px 1px hsl(213, 9%, 76%);
-
-
-    }
-
-    .border_section_elements {
-        > p {
-            background-color: constants.$white;
-            box-shadow: 0px 0px 5px 1px hsl(213, 9%, 76%);
-        }
-    }
+    @include mode-styles(constants.$very-light-gray-bg, hsl(213, 9%, 76%), constants.$white);
 }
