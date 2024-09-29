@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import data_country from "../lib/data.json";
-import Element from "../components/Element";
-import SearchInput from "../components/SearchInput";
-import RegionFilter from "../components/RegionFilter";
-import CountryCard from "../components/CountryCard";
+import mockCountryData from "../lib/data.json";
+import { Element } from "../components/Element";
+import { SearchInput } from "../components/SearchInput";
+import { RegionFilter } from "../components/RegionFilter";
+import { CountryCard } from "../components/CountryCard";
 
 export function Section() {
   // Mode of the application (light/dark)
@@ -16,8 +16,7 @@ export function Section() {
   );
 
   // Data of all countries
-  const [data, setData] = useState(data_country);
-
+  const data = mockCountryData;
   // ID of the currently selected country
   const [selectedCountryID, setSelectedCountryID] = useState("");
 

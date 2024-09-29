@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { setSelectedCountry } from "../lib/features/selectedCountry";
 import { useDispatch } from "react-redux";
 
-const CountryCard = ({ country, index, setSelectedCountryID }) => {
+export const CountryCard = ({ country, index, setSelectedCountryID }) => {
   const dispatch = useDispatch();
   return (
     <motion.div
@@ -50,5 +50,3 @@ const CountryCard = ({ country, index, setSelectedCountryID }) => {
     </motion.div>
   );
 };
-
-export default CountryCard;

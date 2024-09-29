@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
 
-const Element = ({ country }) => {
+export const Element = ({ country }) => {
   const dispatch = useDispatch();
   const mode = useSelector((state) => state.toggleMode.mode);
   const {
@@ -111,5 +111,3 @@ const Element = ({ country }) => {
     </section>
   );
 };
-
-export default Element;

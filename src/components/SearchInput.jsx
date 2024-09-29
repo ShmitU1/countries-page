@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
 
-const SearchInput = ({ searchTerm, setSearchTerm }) => (
+export const SearchInput = ({ searchTerm, setSearchTerm }) => (
   <div className="container_input_element">
     <span className="input_icon">
       <FontAwesomeIcon icon={faMagnifyingGlass} />
@@ -16,5 +16,3 @@ const SearchInput = ({ searchTerm, setSearchTerm }) => (
     />
   </div>
 );
-
-export default SearchInput;
