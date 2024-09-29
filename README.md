@@ -4,7 +4,7 @@ This project is about list of countries, where you can search for specific count
 
 ### Links
 
-- Live Site URL:
+- Live Site URL: https://shmitu1.github.io/countries-page/
 
 ## My process
 
