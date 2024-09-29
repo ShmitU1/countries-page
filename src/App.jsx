@@ -1,7 +1,7 @@
-import Header from './sections/Header'
-import Section from "./sections/Section"
-import { store } from './app/store'
-import { Provider } from'react-redux'
+import { Header } from "./ui/Header";
+import { Section } from "./ui/Section";
+import { store } from "./lib/store";
+import { Provider } from "react-redux";
 
 const App = () => {
   return (
@@ -9,7 +9,7 @@ const App = () => {
       <Header />
       <Section />
     </Provider>
-  )
-}
+  );
+};
 
-export default App
+export default App;
